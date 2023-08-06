@@ -44,7 +44,7 @@ namespace Glamping.Logica
                 return value;
 
             }
-            throw new ArgumentException("Día no inválido. Los días permitidos son jueves, viernes, sabado y domingo.");
+            throw new ArgumentException("Día no inválido. Los días permitidos son Jueves, viernes, sabado y domingo.");
         }
     }
 }
