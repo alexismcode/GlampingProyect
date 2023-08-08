@@ -40,7 +40,19 @@ try
         Reservar = "jueves"
     };
 
-    Console.WriteLine(Cliente1);  // Imprime la información del cliente y la reserva
+    var Cliente2 = new Precios()
+    {
+        Nombre = "carlos",
+        Apellido = "mencias",
+        Correo = "carlos123",
+        Celular = 098733061,
+        Huespedes = 1,
+        Dias = 1,
+        Reservar = "viernes",
+    };
+
+    Console.WriteLine(Cliente1);
+    Console.WriteLine(Cliente2);// Imprime la información del cliente y la reserva
 }
 catch (Exception ex)
 {
