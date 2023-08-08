@@ -46,7 +46,7 @@ try
         Apellido = "mencias",
         Correo = "carlos123",
         Celular = 098733061,
-        Huespedes = 1,
+        Huespedes = 3,
         Dias = 1,
         Reservar = "viernes",
     };
@@ -57,7 +57,7 @@ try
         Apellido = "sanchez",
         Correo = "alexis@gmail.com",
         Celular = 09873302,
-        Huespedes = 2,
+        Huespedes = 3,
         Dias = 3,
         Reservar = "viernes",
     };
@@ -69,7 +69,7 @@ try
         Apellido = "Moreira",
         Correo = "renny62@gmail.com",
         Celular = 0981613427,
-        Huespedes = 1,
+        Huespedes = 3,
         Dias = 2,
         Reservar = "Sábado",
     };
