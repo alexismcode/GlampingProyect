@@ -51,6 +51,17 @@ try
         Reservar = "viernes",
     };
 
+    var Cliente3 = new Precios()
+    {
+        Nombre = "alexis",
+        Apellido = "sanchez",
+        Correo = "alexis@gmail.com",
+        Celular = 09873302,
+        Huespedes = 2,
+        Dias = 3,
+        Reservar = "viernes",
+    };
+
     Console.WriteLine(Cliente1);
     Console.WriteLine(Cliente2);// Imprime la información del cliente y la reserva
 }
