@@ -64,6 +64,7 @@ try
 
     Console.WriteLine(Cliente1);
     Console.WriteLine(Cliente2);// Imprime la información del cliente y la reserva
+    Console.WriteLine(Cliente2);
 }
 catch (Exception ex)
 {
