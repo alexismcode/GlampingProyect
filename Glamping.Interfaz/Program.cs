@@ -68,9 +68,9 @@ try
         Nombre = "Renny",
         Apellido = "Moreira",
         Correo = "renny62@gmail.com",
-        Celular = "0981613427",
-        Huespedes = "1",
-        Dias = "2",
+        Celular = 0981613427,
+        Huespedes = 1,
+        Dias = 2,
         Reservar = "Sábado",
     };
     Console.WriteLine(Cliente4);
