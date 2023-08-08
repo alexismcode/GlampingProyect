@@ -23,6 +23,9 @@ try
     Console.Write(" > Ingrese cuantos días va a reservar [MINIMO 1 - MAXIMO 4 DÍAS]: ");
     int dias = int.Parse(Console.ReadLine());
 
+    Console.Write(" > Ingrese el número de habitaciones que desea: ");
+    int numeroHabitaciones = int.Parse(Console.ReadLine());
+
     Console.Write(" > Ingrese el día que se realizará la reserva \n  [JUEVES, VIERNES, SABADO O DOMINGO]: ");
     string diaReserva = Console.ReadLine();
 
@@ -38,6 +41,7 @@ try
         Celular = celular,
         Huespedes = huespedes,
         Dias = dias,
+        Habitaciones = numeroHabitaciones,
         DiaReserva = diaReserva,
         FormaPago = formaPago
     };

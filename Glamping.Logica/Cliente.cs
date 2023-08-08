@@ -12,11 +12,11 @@ namespace Glamping.Logica
         public string? Apellido { get; set; }
         public int Celular { get; set; }
         public int Dias { get; set; }
+        public int Habitaciones { get; set; }
 
         private string? _correo;
         private int _huespedes;
         private string? _diaReserva;
-
 
         public string? Correo
         {
@@ -42,17 +42,19 @@ namespace Glamping.Logica
             get => _diaReserva;
             set => _diaReserva = ValidateDiaReserva(value?.ToUpper());
         }
+
         public string? FormaPago { get; set; }
 
         public override string ToString()
         {
             return $"\t------------------------- INVOICE -------------------------\n\n" +
-                   $"\t  Nombre..................: {Nombre} {Apellido}\n" +
+                   $"\t  Nombre..................: {Nombre,25} {Apellido}\n" +
                    $"\t  Correo..................: {Correo,30}\n" +
                    $"\t  Celular.................: {Celular,30}\n" +
                    $"\t  Huespedes...............: {Huespedes,30}\n" +
                    $"\t  Días....................: {Dias,30}\n" +
-                   $"\t  Día de reserva..........: {DiaReserva,30}";
+                   $"\t  Día de reserva..........: {DiaReserva,30}\n" +
+                   $"\t  Número de habitaciones..: {Habitaciones,30}";
         }
 
         private void ValidateCorreo(string? correo)
