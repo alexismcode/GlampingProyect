@@ -29,7 +29,7 @@ try
     Console.WriteLine("===================================================\n");
 
     // Crea una nueva instancia de la clase "Precios" del espacio de nombres Glamping.Logica
-    var Cliente1 = new Precios()
+    var Cliente1 = new Factura()
     {
         Nombre = Nombre1,
         Apellido = Apellido1,
@@ -40,7 +40,7 @@ try
         Reservar = Reserva1
     };
 
-    var Cliente3 = new Precios()
+    var Cliente3 = new Factura()
     {
         Nombre = "alexis",
         Apellido = "sanchez",
@@ -52,7 +52,7 @@ try
     };
 
     Console.WriteLine(Cliente1);  // Imprime la información del cliente y la reserva
-    var Cliente4 = new Precios()
+    var Cliente4 = new Factura()
     {
         Nombre = "Renny",
         Apellido = "Moreira",

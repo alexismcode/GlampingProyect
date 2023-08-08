@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Glamping.Logica
 {
-    public class Precios : Clientes
+    public class Factura : Cliente
     {
         public decimal _precio;
         public int _dias;
 
         // Constructor predeterminado que inicializa el precio base de la reserva en $50.
-        public Precios()
+        public Factura()
         {
             _precio = 50;
         }
