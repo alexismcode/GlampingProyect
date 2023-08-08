@@ -42,17 +42,7 @@ try
 
     Console.WriteLine(Cliente1);  // Imprime la información del cliente y la reserva
 
-    var Cliente4 = new Precios()
-    {
-        Nombre = "Renny",
-        Apellido ="Moreira",
-        Correo = "renny62@gmail.com",
-        Celular = "0981613427",
-        Huespedes = "1",
-        Dias = "2",
-        Reservar = "Sábado",
-    };
-    Console.WriteLine(Cliente4);
+    
 }
 catch (Exception ex)
 {
