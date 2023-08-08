@@ -1,48 +1,82 @@
-﻿namespace Glamping.Logica
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Glamping.Logica
 {
-    // Clase abstracta que define la información básica de un cliente de reservas.
     public abstract class Cliente
     {
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }
-
-        public string? Correo { get; set; }
         public int Celular { get; set; }
-        public int Huespedes { get; set; }
+        public int Dias { get; set; }
 
-        public string? _reservar { get; set; }
+        private string? _correo;
+        private int _huespedes;
+        private string? _diaReserva;
 
-        // Propiedad que permite obtener y establecer el día de la reserva, validando que sea un día válido.
-        public string? Reservar
+
+        public string? Correo
         {
-            get => _reservar;
-            set => _reservar = ValidateReservar(value?.ToUpper());
+            get => _correo;
+            set
+            {
+                ValidateCorreo(value);
+                _correo = value;
+            }
         }
 
-
+        public int Huespedes
+        {
+            get => _huespedes;
+            set
+            {
+                ValidateHuespedes(value);
+                _huespedes = value;
+            }
+        }
+        public string? DiaReserva
+        {
+            get => _diaReserva;
+            set => _diaReserva = ValidateDiaReserva(value?.ToUpper());
+        }
+        public string? FormaPago { get; set; }
 
         public override string ToString()
         {
-            return $"Nombre..................:{Nombre,20}\n" +
-                   $"Apellido................:{Apellido,20}\n" +
-                   $"Correo..................:{Correo,20}\n" +
-                   $"Celular.................:{Celular,20}\n" +
-                   $"Huespedes...............:{Huespedes,20}\n" +
-                   $"Dia de reserva..........:{Reservar,20}\n";
+            return $"\t------------------------- INVOICE -------------------------\n\n" +
+                   $"\t  Nombre..................: {Nombre} {Apellido}\n" +
+                   $"\t  Correo..................: {Correo,30}\n" +
+                   $"\t  Celular.................: {Celular,30}\n" +
+                   $"\t  Huespedes...............: {Huespedes,30}\n" +
+                   $"\t  Días....................: {Dias,30}\n" +
+                   $"\t  Día de reserva..........: {DiaReserva,30}";
         }
 
-        // Método privado para validar si el día de reserva es válido.
-        private string? ValidateReservar(string? value)
+        private void ValidateCorreo(string? correo)
         {
-            if (value == "JUEVES" || value == "VIERNES" || value == "SÁBADO" || value == "DOMINGO")
-
+            if (correo == null || !correo.Contains("@"))
             {
-                return value;
-
+                throw new ArgumentException("Correo inválido. Debe contener el símbolo '@'.");
             }
-            throw new ArgumentException("Día no inválido. Los días permitidos son jueves, viernes, sabado y domingo.");
         }
-        // Método abstracto que debe ser implementado por las clases derivadas para calcular el valor a pagar.
+
+        private void ValidateHuespedes(int huespedes)
+        {
+            if (huespedes < 2 || huespedes > 5)
+            {
+                throw new ArgumentException("Cantidad de huéspedes inválida. Debe estar entre 2 y 5.");
+            }
+        }
+        private string ValidateDiaReserva(string? value)
+        {
+            if (value == "JUEVES" || value == "VIERNES" || value == "SABADO" || value == "DOMINGO")
+                return value;
+            throw new ArgumentException("Día de reserva inválido.");
+        }
+
         public abstract decimal GetValueToPay();
     }
 }

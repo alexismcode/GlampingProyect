@@ -1,5 +1,4 @@
-﻿using Glamping.Logica;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,44 +6,35 @@ using System.Threading.Tasks;
 
 namespace Glamping.Logica
 {
-    // Clase que define la información de reserva
-    public class Reserva
+    public class Reserva : Cliente
     {
-        public string? _dia;
-
-        public Reserva()
-        {
-            _dia = "Sabado";
-        }
-
-        public Reserva(string? dia)
-        {
-            _dia = ValidateDia(dia);
-        }
-
-        // Propiedad que permite obtener y establecer el día de la reserva.
-        public string? Dia
-        {
-            get => _dia;
-            set => _dia = ValidateDia(value);
-        }
+        private const decimal PrecioPorNoche = 50.0m;
 
         public override string ToString()
         {
-            return $"{base.ToString()}\n\t" +
-                $"Dia....................:{Dia,20:C2}\n\t";
+            return $"{base.ToString()}\n" +
+                $"\t  Forma de Pago...........: {FormaPago,30}\n" +
+                $"\t  Valor de la Reserva.....: {GetValueToPay(),30:C2}";
         }
 
-        // Método privado para validar si el día de reserva es válido.
-        private string? ValidateDia(string? value)
+        private void ValidateDias(int dias)
         {
-            if (value == "jueves" || value == "viernes" || value == "sabado" || value == "domingo")
+            if (dias < 1 || dias > 4)
+                throw new ArgumentException("Cantidad de días no válida.");
+        }
 
-            {
-                return value;
+        private void ValidateFormaPago(string? formaPago)
+        {
+            formaPago = formaPago?.ToUpper();
+            if (formaPago != "EFECTIVO" && formaPago != "TRANSFERENCIA" && formaPago != "TARJETA DE CREDITO")
+                throw new ArgumentException("Forma de pago no válida.");
+        }
 
-            }
-            throw new ArgumentException("Día no inválido. Los días permitidos son Jueves, viernes, sabado y domingo.");
+        public override decimal GetValueToPay()
+        {
+            ValidateDias(Dias);
+            ValidateFormaPago(FormaPago);
+            return PrecioPorNoche * Dias;
         }
     }
 }
