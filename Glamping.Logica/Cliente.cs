@@ -1,7 +1,7 @@
 ﻿namespace Glamping.Logica
 {
     // Clase abstracta que define la información básica de un cliente de reservas.
-    public abstract class Clientes
+    public abstract class Cliente
     {
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }
